@@ -7,7 +7,7 @@ namespace Playground
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             using (var bootStrapper = BootStrapper.Setup())
             {

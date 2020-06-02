@@ -9,7 +9,7 @@ namespace Playground.Implementation
 {
     internal class CancellationTokenConcept : IHandleCancellationTokens, IProvideConcept
     {
-        public void CancellableTask(CancellationToken cancellationToken, TimeSpan timeoutInSeconds)
+        public void LongRunningOperation(CancellationToken cancellationToken, TimeSpan timeoutInSeconds)
         {
             var stopWatch = Stopwatch.StartNew();
 
@@ -27,13 +27,17 @@ namespace Playground.Implementation
 
             try
             {
-                Task.Run(() => CancellableTask(cancellationToken.Token, TimeSpan.FromSeconds(1))).Wait();
+                Task.Run(() => this.LongRunningOperation(cancellationToken.Token, TimeSpan.FromSeconds(1))).Wait();
             }
             catch (AggregateException ex)
             {
                 ex.InnerExceptions.ToList().ForEach(e => Console.WriteLine($"{e} {e.Message}"));
             }
+        }
 
+        public Task RunConceptAsync()
+        {
+            throw new NotImplementedException();
         }
     }
 }

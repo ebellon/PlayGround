@@ -9,11 +9,19 @@ namespace Playground.Common
         public static ServiceProvider Setup()
         {
             return new ServiceCollection()
+
+              //Implementations
               .AddSingleton<IThrowExceptions, ExceptionThrowerConcept>()
-              .AddSingleton<IProvideConcept, ExceptionThrowerConcept>()
               .AddSingleton<IHandleCancellationTokens, CancellationTokenConcept>()
+              .AddSingleton<IHandleAsyncAwait, AsyncAwaitConcept>()
+
+              // Concept
               .AddSingleton<IProvideConcept, CancellationTokenConcept>()
-              .AddSingleton<IManageConcepts, ConceptManager>()
+              .AddSingleton<IProvideConcept, ExceptionThrowerConcept>()
+              .AddSingleton<IProvideAsyncConcept, AsyncAwaitConcept>()
+
+             // Concept manager
+             .AddSingleton<IManageConcepts, ConceptManager>()
               .BuildServiceProvider();
         }
     }

@@ -19,21 +19,24 @@ namespace Playground.Common
 
         public async Task RunAll()
         {
+            foreach (var asyncConcept in asyncConcepts)
+            {
+                Console.WriteLine("--------------------------------------");
+                Console.WriteLine($"EXECUTING ASYNC CONCEPT {asyncConcept}");
+                await asyncConcept.RunConceptAsync().ConfigureAwait(false);
+                Console.WriteLine($"FINISHING ASYNC CONCEPT {asyncConcept}");
+                Console.WriteLine("--------------------------------------");
+                Console.WriteLine(string.Empty);
+            }
+
             foreach (var concept in concepts)
             {
+                Console.WriteLine("--------------------------------------");
                 Console.WriteLine($"EXECUTING CONCEPT {concept}");
                 concept.RunConcept();
                 Console.WriteLine($"FINISHING CONCEPT {concept}");
-                Console.WriteLine($"--------------------------------------");
-            }
-
-
-            foreach (var asyncConcept in asyncConcepts)
-            {
-                Console.WriteLine($"EXECUTING CONCEPT {asyncConcept}");
-                await asyncConcept.RunConceptAsync().ConfigureAwait(false);
-                Console.WriteLine($"FINISHING CONCEPT {asyncConcept}");
-                Console.WriteLine($"--------------------------------------");
+                Console.WriteLine("--------------------------------------");
+                Console.WriteLine(string.Empty);
             }
         }
     }
