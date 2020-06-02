@@ -1,6 +1,6 @@
 namespace Playground.Interfaces
 {
-    internal interface IThrowExceptions
+    internal interface IHandleExceptions
     {
         void RethrowException(bool withEx);
 

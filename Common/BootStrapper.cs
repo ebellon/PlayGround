@@ -11,7 +11,7 @@ namespace Playground.Common
             return new ServiceCollection()
 
               //Implementations
-              .AddSingleton<IThrowExceptions, ExceptionThrowerConcept>()
+              .AddSingleton<IHandleExceptions, ExceptionThrowerConcept>()
               .AddSingleton<IHandleCancellationTokens, CancellationTokenConcept>()
               .AddSingleton<IHandleAsyncAwait, AsyncAwaitConcept>()
 

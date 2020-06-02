@@ -3,7 +3,7 @@ using Playground.Interfaces;
 
 namespace Playground.Common
 {
-    internal class ExceptionThrowerConcept : IThrowExceptions, IProvideConcept
+    internal class ExceptionThrowerConcept : IHandleExceptions, IProvideConcept
     {
         public void RethrowException(bool withEx)
         {
