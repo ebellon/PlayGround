@@ -14,15 +14,17 @@ namespace Playground.Common
               .AddSingleton<IHandleExceptions, ExceptionThrowerConcept>()
               .AddSingleton<IHandleCancellationTokens, CancellationTokenConcept>()
               .AddSingleton<IHandleAsyncAwait, AsyncAwaitConcept>()
+              .AddSingleton<IHandleBoxing, BoxingConcept>()
 
               // Concept
               .AddSingleton<IProvideConcept, CancellationTokenConcept>()
               .AddSingleton<IProvideConcept, ExceptionThrowerConcept>()
+              .AddSingleton<IProvideConcept, BoxingConcept>()
               .AddSingleton<IProvideAsyncConcept, AsyncAwaitConcept>()
 
              // Concept manager
              .AddSingleton<IManageConcepts, ConceptManager>()
-              .BuildServiceProvider();
+             .BuildServiceProvider();
         }
     }
 }
